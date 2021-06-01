@@ -7,6 +7,14 @@ spring:
     schemas: public
     locations: classpath:db/migration
     enabled: true
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    base-url: ${ZIPKIN_URL}
+    sender:
+      type: web
+      
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
@@ -19,7 +27,7 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_HOST}
   instance:
-    hostName: ${spring.application.name}
+    hostName: ${EUREKA_INSTANCE_HOST}
   sleuth:
     sampler:
       percentage: 1.0

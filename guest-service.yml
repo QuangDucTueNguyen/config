@@ -23,7 +23,7 @@ eureka:
     serviceUrl:
       defaultZone: ${EUREKA_SERVER_HOST}
   instance:
-    hostName: ${spring.application.name}
+    hostName: ${EUREKA_INSTANCE_HOST}
 server:
   port: 8082
 
