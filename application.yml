@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: ${GUEST_PROFILE_DB_URL}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+  flyway:
+    schemas: public
+    locations: classpath:db/migration
+    enabled: true
+  application:
+    name: guest-service
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    base-url: ${ZIPKIN_URL}
+    sender:
+      type: web
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER_HOST}
+  instance:
+    hostName: ${spring.application.name}
+server:
+  port: 8082
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
