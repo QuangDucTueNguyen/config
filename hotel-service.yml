@@ -38,7 +38,7 @@ eureka:
 
 reservation:
   host: ${RESERVATION_SERVICE_HOST}
-  getReservation: /api/reservation
+  getReservation: /api/reservations
 
 server:
   port: 8081
