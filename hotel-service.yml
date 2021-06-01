@@ -1,19 +1,15 @@
 spring:
   datasource:
-    url: ${GUEST_PROFILE_DB_URL}
+    url: ${HOTEL_DB_URL}
     username: ${POSTGRES_USERNAME}
     password: ${POSTGRES_PASSWORD}
   flyway:
     schemas: public
     locations: classpath:db/migration
     enabled: true
-  sleuth:
-    sampler:
-      percentage: 1.0
-  zipkin:
-    base-url: ${ZIPKIN_URL}
-    sender:
-      type: web
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
 eureka:
   client:
     healthcheck:
@@ -24,9 +20,17 @@ eureka:
       defaultZone: ${EUREKA_SERVER_HOST}
   instance:
     hostName: ${spring.application.name}
-server:
-  port: 8082
+  sleuth:
+    sampler:
+      percentage: 1.0
+  zipkin:
+    base-url: ${ZIPKIN_URL}
+    sender:
+      type: web
 
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
+reservation:
+  host: ${RESERVATION_SERVICE_HOST}
+  getReservation: /api/reservation
+
+server:
+  port: 8081

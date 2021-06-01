@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${GUEST_PROFILE_DB_URL}
+    url: ${RESERVATION_DB_URL}
     username: ${POSTGRES_USERNAME}
     password: ${POSTGRES_PASSWORD}
   flyway:
@@ -14,6 +14,7 @@ spring:
     base-url: ${ZIPKIN_URL}
     sender:
       type: web
+
 eureka:
   client:
     healthcheck:
@@ -24,9 +25,18 @@ eureka:
       defaultZone: ${EUREKA_SERVER_HOST}
   instance:
     hostName: ${spring.application.name}
+
 server:
-  port: 8082
+  port: 8080
 
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+hotelService:
+  host: ${HOTEL_SERVICE_HOST}
+  getAllRoomType: /api/rooms/types
+
+guestService:
+  host: ${GUEST_SERVICE_HOST}
+  getUserInfo: /api/guest/{id}
