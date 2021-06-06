@@ -32,7 +32,7 @@ jwt:
   secret: ${JWT_SECRET_KEY}
 
 server:
-  port: 8084
+  port: 9084
 
 springdoc:
   swagger-ui:

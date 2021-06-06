@@ -25,7 +25,7 @@ eureka:
   instance:
     hostName: ${EUREKA_INSTANCE_HOST}
 server:
-  port: 8082
+  port: 9082
 
 springdoc:
   swagger-ui:
