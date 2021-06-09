@@ -39,4 +39,4 @@ hotelService:
 
 guestService:
   host: ${GUEST_SERVICE_HOST}
-  getUserInfo: /api/guest/{id}
+  getUserInfo: /api/guests/{id}
