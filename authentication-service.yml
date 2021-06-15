@@ -16,7 +16,13 @@ spring:
     base-url: ${ZIPKIN_URL}
     sender:
       type: web
-
+  kafka:
+    producer:
+      topic: ${KAFKA_TOPIC}
+      bootstrap-servers: ${KAFKA_SERVER}
+      key-serializer: com.incubator.dbs.authenticateservice.model.template.serializer.CreateGuestSerializer
+      value-serializer: com.incubator.dbs.authenticateservice.model.template.serializer.CreateGuestSerializer
+      
 eureka:
   client:
     healthcheck:

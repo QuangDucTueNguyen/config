@@ -17,6 +17,14 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update   
+  kafka:
+    consumer:
+      topic: ${KAFKA_TOPIC}
+      bootstrap-servers: ${KAFKA_SERVER}
+      auto-offset-reset: earliest
+      group-id: reservation_system
+      key-deserializer: com.incubator.dbs.guestservice.model.template.deserializer.CreateGuestDeserializer
+      value-deserializer: com.incubator.dbs.guestservice.model.template.deserializer.CreateGuestDeserializer      
 eureka:
   client:
     healthcheck:
